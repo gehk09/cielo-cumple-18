@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cielo cumple 18 ✨🌸</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        midnight: '#070917',
+                        velvet: '#121638',
+                        champagne: '#f8d88c',
+                        rosegold: '#f7a8c4',
+                        crimson: '#e11d48',
+                        ivory: '#fffdf7',
+                    },
+                    animation: {
+                        'float-gentle': 'floatGentle 5.5s ease-in-out infinite',
+                        'spin-slow': 'spin 26s linear infinite',
+                        'pulse-halo': 'pulseHalo 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        floatGentle: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseHalo: {
+                            '0%, 100%': { opacity: '0.55', transform: 'scale(0.98)' },
+                            '50%': { opacity: '0.95', transform: 'scale(1.04)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --gold-bright: #fff4d4;
+            --gold-main: #f8d88c;
+            --rose-gold: #f7a8c4;
+            --crimson-marinera: #e11d48;
+            --midnight-bg: #070917;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: #070917;
+            background-image:
+                radial-gradient(ellipse at 18% 12%, rgba(225, 29, 72, 0.16) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 18%, rgba(248, 216, 140, 0.12) 0%, transparent 46%),
+                radial-gradient(ellipse at 50% 60%, rgba(168, 85, 247, 0.12) 0%, transparent 55%),
+                radial-gradient(circle at 50% 100%, #171236 0%, #0a0d24 55%, #060814 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Canvas global a 60fps para estrellas, pétalos, flores procedurales y destellos */
+        #garden-canvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        /* Tarjetas Glassmorphism Alta Costura */
+        .glass-floral-card {
+            background: linear-gradient(150deg, rgba(22, 26, 58, 0.72) 0%, rgba(11, 14, 34, 0.85) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(248, 216, 140, 0.32);
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.58),
+                inset 0 1px 0 rgba(255, 244, 212, 0.2);
+        }
+
+        .glass-gold-card {
+            background: linear-gradient(135deg, rgba(248, 216, 140, 0.15) 0%, rgba(225, 29, 72, 0.12) 52%, rgba(247, 168, 196, 0.14) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(248, 216, 140, 0.48);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.52),
+                inset 0 0 24px rgba(248, 216, 140, 0.1);
+        }
+
+        /* Texto dorado con destello animado */
+        .shimmer-gold-title {
+            background: linear-gradient(
+                110deg,
+                #fff7df 10%,
+                #f8d88c 30%,
+                #f7a8c4 50%,
+                #f8d88c 70%,
+                #fff7df 90%
+            );
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer 5s linear infinite;
+        }
+
+        @keyframes goldShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 220% center; }
+        }
+
+        /* Animaciones de la bailarina de Marinera Peruana */
+        .marinera-skirt-sway {
+            transform-origin: 180px 198px;
+            animation: skirtTwirl 3.6s ease-in-out infinite alternate;
+        }
+        @keyframes skirtTwirl {
+            0% { transform: rotate(-2.8deg) skewX(-1.5deg); }
+            100% { transform: rotate(3.2deg) skewX(1.8deg); }
+        }
+
+        .marinera-panuelo-wave {
+            transform-origin: 256px 96px;
+            animation: handkerchiefWave 1.4s ease-in-out infinite alternate;
+        }
+        @keyframes handkerchiefWave {
+            0% { transform: rotate(-10deg) scaleY(1); }
+            50% { transform: rotate(6deg) scaleY(0.95); }
+            100% { transform: rotate(14deg) scaleY(1.03); }
+        }
+
+        .marinera-curls-bounce {
+            transform-origin: 175px 105px;
+            animation: curlsBounce 3.2s ease-in-out infinite alternate;
+        }
+        @keyframes curlsBounce {
+            0% { transform: translateY(0px) rotate(-1.2deg); }
+            100% { transform: translateY(-2.5px) rotate(1.5deg); }
+        }
+
+        /* Llamas de las velas "18" */
+        .candle-flame-anim {
+            transform-origin: center bottom;
+            animation: candleFlicker 1.2s ease-in-out infinite alternate;
+            cursor: pointer;
+        }
+        @keyframes candleFlicker {
+            0% { transform: scale(1, 1) rotate(-2deg); filter: drop-shadow(0 0 8px #fbbf24); }
+            50% { transform: scale(0.94, 1.08) rotate(2.5deg); filter: drop-shadow(0 0 14px #f59e0b); }
+            100% { transform: scale(1.04, 0.96) rotate(-1.5deg); filter: drop-shadow(0 0 11px #fde68a); }
+        }
+
+        /* Humo al soplar las velas */
+        .smoke-strand {
+            opacity: 0;
+        }
+        .smoke-rising {
+            animation: smokeRise 2.4s ease-out forwards;
+        }
+        @keyframes smokeRise {
+            0% { opacity: 0; transform: translateY(0) scale(0.7); }
+            25% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(-36px) translateX(7px) scale(1.6); }
+        }
+
+        /* Tarjetas 3D Flip para el Jardín de Mensajes */
+        .flower-flip-card {
+            perspective: 1100px;
+            cursor: pointer;
+        }
+        .flower-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 185px;
+            transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-style: preserve-3d;
+        }
+        .flower-flip-card.is-flipped .flower-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .flower-card-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.5rem;
+        }
+        .flower-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Perforación lateral estilo Ticket VIP */
+        .vip-ticket-perforated {
+            position: relative;
+        }
+        .vip-ticket-perforated::before,
+        .vip-ticket-perforated::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 26px;
+            height: 26px;
+            border-radius: 9999px;
+            background-color: #090b1d;
+            border: 1px solid rgba(248, 216, 140, 0.45);
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+        .vip-ticket-perforated::before {
+            left: -14px;
+        }
+        .vip-ticket-perforated::after {
+            right: -14px;
+        }
+
+        /* Sello de vale canjeado */
+        .stamp-pop {
+            animation: stampImpact 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes stampImpact {
+            0% { opacity: 0; transform: scale(2.3) rotate(-20deg); }
+            100% { opacity: 1; transform: scale(1) rotate(-6deg); }
+        }
+
+        /* Cursor de terminal */
+        .term-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.1em;
+            background-color: #f8d88c;
+            vertical-align: middle;
+            animation: blinkCursor 0.95s step-end infinite;
+        }
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-crimson selection:text-white">
+
+    <!-- Canvas Global: Estrellas, pétalos cayendo, flores procedurales y destellos de 5s -->
+    <canvas id="garden-canvas"></canvas>
+
+    <!-- Notificación Toast Elegante (Sin alert/confirm) -->
+    <div id="toast-notification" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 opacity-0 -translate-y-8 pointer-events-none w-[92%] max-w-md">
+        <div class="glass-gold-card px-4 py-3 rounded-2xl shadow-2xl flex items-center justify-center gap-2.5 text-xs sm:text-sm font-medium text-amber-100 text-center">
+            <span id="toast-icon" class="text-base">✨</span>
+            <span id="toast-text">¡Un destello floral para Cielo!</span>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         1. PANTALLA DE INICIO (#splash-screen) CON FLORES BROTANDO AUTOMÁTICAMENTE
+         ========================================================================= -->
+    <section id="splash-screen" class="relative z-20 min-h-screen w-full flex flex-col items-center justify-center px-5 py-10 text-center transition-all duration-700">
+        <!-- Halo de luz ambiental -->
+        <div class="absolute w-80 h-80 sm:w-[30rem] sm:h-[30rem] rounded-full bg-gradient-to-tr from-crimson/20 via-rosegold/15 to-champagne/20 blur-3xl animate-pulse-halo pointer-events-none"></div>
+
+        <!-- Tarjeta Central Glassmorphic con Filigrana Dorada y Rosas -->
+        <div class="relative max-w-md w-full glass-floral-card rounded-[2.25rem] p-7 sm:p-10 overflow-hidden">
+            <!-- Filigrana Floral Superior Izquierda -->
+            <svg class="absolute -top-2 -left-2 w-28 h-28 pointer-events-none opacity-90" viewBox="0 0 120 120" fill="none">
+                <path d="M8 95 C 20 55, 55 22, 102 10" stroke="#f8d88c" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+                <path d="M36 52 C24 44, 20 32, 29 26 C38 32, 41 42, 36 52 Z" fill="#1e3a3a" stroke="#f8d88c" stroke-width="0.8"/>
+                <path d="M62 28 C55 17, 60 8, 70 10 C74 19, 69 26, 62 28 Z" fill="#1e3a3a" stroke="#f8d88c" stroke-width="0.8"/>
+                <g transform="translate(42, 38)">
+                    <circle cx="0" cy="0" r="14" fill="#e11d48" opacity="0.35"/>
+                    <circle cx="-4" cy="-3" r="8" fill="#f43f5e"/>
+                    <circle cx="4" cy="-2" r="8" fill="#f7a8c4"/>
+                    <circle cx="0" cy="4" r="8" fill="#fb7185"/>
+                    <circle cx="0" cy="0" r="3" fill="#fff4d4"/>
+                </g>
+                <g transform="translate(78, 18)">
+                    <circle cx="0" cy="0" r="8" fill="#f7a8c4"/>
+                    <circle cx="0" cy="0" r="3" fill="#f8d88c"/>
+                </g>
+            </svg>
+
+            <!-- Filigrana Floral Inferior Derecha -->
+            <svg class="absolute -bottom-2 -right-2 w-28 h-28 pointer-events-none opacity-90 rotate-180" viewBox="0 0 120 120" fill="none">
+                <path d="M8 95 C 20 55, 55 22, 102 10" stroke="#f8d88c" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+                <path d="M36 52 C24 44, 20 32, 29 26 C38 32, 41 42, 36 52 Z" fill="#1e3a3a" stroke="#f8d88c" stroke-width="0.8"/>
+                <g transform="translate(42, 38)">
+                    <circle cx="-4" cy="-3" r="8" fill="#f43f5e"/>
+                    <circle cx="4" cy="-2" r="8" fill="#f7a8c4"/>
+                    <circle cx="0" cy="4" r="8" fill="#e11d48"/>
+                    <circle cx="0" cy="0" r="3" fill="#fff4d4"/>
+                </g>
+            </svg>
+
+            <!-- Emblema Floral Dorado "18" -->
+            <div class="relative w-32 h-32 mx-auto mb-5 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-full border border-dashed border-amber-200/35 animate-spin-slow"></div>
+                <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-[0_10px_25px_rgba(248,216,140,0.35)]">
+                    <defs>
+                        <radialGradient id="splashMedalGold" cx="38%" cy="32%" r="68%">
+                            <stop offset="0%" stop-color="#fff7df"/>
+                            <stop offset="55%" stop-color="#f8d88c"/>
+                            <stop offset="100%" stop-color="#c89138"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Pétalos alrededor del medallón -->
+                    <g opacity="0.92">
+                        <ellipse cx="80" cy="34" rx="13" ry="22" fill="#f43f5e"/>
+                        <ellipse cx="80" cy="126" rx="13" ry="22" fill="#f43f5e"/>
+                        <ellipse cx="34" cy="80" rx="22" ry="13" fill="#f43f5e"/>
+                        <ellipse cx="126" cy="80" rx="22" ry="13" fill="#f43f5e"/>
+                        <ellipse cx="48" cy="48" rx="13" ry="20" transform="rotate(-45 48 48)" fill="#f7a8c4"/>
+                        <ellipse cx="112" cy="112" rx="13" ry="20" transform="rotate(-45 112 112)" fill="#f7a8c4"/>
+                        <ellipse cx="112" cy="48" rx="13" ry="20" transform="rotate(45 112 48)" fill="#f7a8c4"/>
+                        <ellipse cx="48" cy="112" rx="13" ry="20" transform="rotate(45 48 112)" fill="#f7a8c4"/>
+                    </g>
+                    <circle cx="80" cy="80" r="35" fill="url(#splashMedalGold)"/>
+                    <circle cx="80" cy="80" r="29" fill="none" stroke="#7c5318" stroke-width="1.1" stroke-dasharray="3 3"/>
+                    <text x="80" y="88" text-anchor="middle" fill="#3a2205" font-family="'Playfair Display', serif" font-weight="800" font-size="28">17+1</text>
+                </svg>
+            </div>
+
+            <span class="inline-block px-3.5 py-1 rounded-full bg-white/5 border border-amber-200/30 text-champagne font-mono text-[11px] tracking-widest uppercase mb-3">
+                ✨ AHORA ERES MAYOR DE EDAD ✨
+            </span>
+
+            <h1 class="font-serif text-3xl sm:text-4xl font-extrabold shimmer-gold-title leading-tight mb-2">
+                Y tienes que chambear...
+            </h1>
+
+            <p class="text-rosegold font-serif italic text-base sm:text-lg mb-6">
+                Pero tengo algo especial para ti
+            </p>
+
+            <button id="open-gift-btn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-champagne via-rosegold to-amber-200 text-midnight font-bold text-base shadow-[0_0_32px_rgba(248,216,140,0.48)] hover:shadow-[0_0_48px_rgba(225,29,72,0.72)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer">
+                <span>Abrir mi regalo ✨</span>
+            </button>
+
+            <p class="mt-4 text-[11px] text-slate-300/80">
+                Toca cualquier parte de la pantalla para hacer brotar flores 🌸
+            </p>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         2. SEGUNDA PANTALLA (#main-screen) — JARDÍN, MARINERA & DESTELLOS (5s)
+         ========================================================================= -->
+    <main id="main-screen" class="hidden relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-7 sm:py-11 space-y-9 opacity-0 transition-opacity duration-1000">
+
+        <!-- Barra Superior Flotante con Botón "✨ Repetir destellos" y Audio Toggle -->
+        <header class="glass-floral-card rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-2.5">
+            <div class="flex items-center gap-2.5">
+                <span class="text-xl">🌹</span>
+                <div>
+                    <p class="font-serif font-bold text-sm sm:text-base text-champagne leading-none">Cielo • 18 Años</p>
+                    <p id="sparkle-status-text" class="text-[11px] text-rosegold mt-0.5">✨ Lluvia de destellos activa...</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button id="repeat-sparkles-btn" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-300/25 via-rose-400/25 to-amber-200/25 hover:from-amber-300/35 hover:to-rose-400/35 border border-amber-200/45 text-amber-100 text-xs font-semibold transition active:scale-95 cursor-pointer shadow-sm">
+                    ✨ Repetir destellos
+                </button>
+
+                <button id="audio-toggle-btn" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-amber-200/25 text-champagne text-xs font-medium flex items-center gap-1.5 transition active:scale-95 cursor-pointer" aria-label="Silenciar o activar música">
+                    <span id="audio-toggle-icon">🔊</span>
+                    <span id="audio-toggle-label" class="hidden sm:inline">Música</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- =====================================================================
+             3. HERO HEADER + ILUSTRACIÓN ARTÍSTICA DE CHICA CON RULOS BAILANDO MARINERA PERUANA
+             ===================================================================== -->
+        <section class="glass-floral-card rounded-[2rem] p-6 sm:p-10 relative overflow-hidden">
+            <!-- Guirnalda Botánica y Rosas Esquina Superior Izquierda -->
+            <svg class="absolute -top-3 -left-3 w-36 h-36 sm:w-44 sm:h-44 pointer-events-none opacity-95" viewBox="0 0 180 180" fill="none">
+                <path d="M12 152 C 28 90, 78 36, 156 14" stroke="#f8d88c" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+                <path d="M46 84 C30 74, 24 58, 36 50 C48 58, 52 72, 46 84 Z" fill="#1f3a3d" stroke="#f8d88c" stroke-width="0.9"/>
+                <path d="M84 50 C74 34, 80 20, 94 22 C100 34, 94 46, 84 50 Z" fill="#1f3a3d" stroke="#f8d88c" stroke-width="0.9"/>
+                <path d="M30 120 C14 116, 8 102, 18 94 C30 98, 34 110, 30 120 Z" fill="#2c2444" stroke="#f7a8c4" stroke-width="0.9"/>
+                <!-- Rosa Carmesí Principal -->
+                <g transform="translate(56, 56)">
+                    <circle cx="0" cy="0" r="22" fill="#e11d48" opacity="0.35"/>
+                    <circle cx="-6" cy="-4" r="12" fill="#e11d48"/>
+                    <circle cx="6" cy="-3" r="12" fill="#f43f5e"/>
+                    <circle cx="0" cy="6" r="12" fill="#f7a8c4"/>
+                    <circle cx="0" cy="0" r="7" fill="#ffe4ef"/>
+                    <circle cx="0" cy="0" r="3" fill="#f8d88c"/>
+                </g>
+                <!-- Rosa Secundaria -->
+                <g transform="translate(110, 26)">
+                    <circle cx="0" cy="0" r="12" fill="#f7a8c4"/>
+                    <circle cx="0" cy="0" r="5" fill="#fff4d4"/>
+                </g>
+            </svg>
+
+            <!-- Guirnalda Botánica y Rosas Esquina Inferior Derecha -->
+            <svg class="absolute -bottom-3 -right-3 w-36 h-36 sm:w-44 sm:h-44 pointer-events-none opacity-95 rotate-180" viewBox="0 0 180 180" fill="none">
+                <path d="M12 152 C 28 90, 78 36, 156 14" stroke="#f8d88c" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+                <path d="M46 84 C30 74, 24 58, 36 50 C48 58, 52 72, 46 84 Z" fill="#1f3a3d" stroke="#f8d88c" stroke-width="0.9"/>
+                <g transform="translate(56, 56)">
+                    <circle cx="-6" cy="-4" r="12" fill="#f43f5e"/>
+                    <circle cx="6" cy="-3" r="12" fill="#f7a8c4"/>
+                    <circle cx="0" cy="6" r="12" fill="#e11d48"/>
+                    <circle cx="0" cy="0" r="3.5" fill="#f8d88c"/>
+                </g>
+            </svg>
+
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-7 items-center">
+                <!-- Ilustración Artística Multicapa: Chica con Rulos Bailando Marinera Peruana -->
+                <div class="md:col-span-6 flex flex-col items-center">
+                    <div class="relative w-72 h-80 sm:w-80 sm:h-[23rem] flex items-center justify-center animate-float-gentle">
+                        <!-- Resplandor cálido dorado y rosa detrás de la bailarina -->
+                        <div class="absolute inset-5 rounded-full bg-gradient-to-b from-amber-300/20 via-rose-500/20 to-purple-500/15 blur-2xl"></div>
+                        <div class="absolute inset-3 rounded-full border border-amber-200/25"></div>
+
+                        <svg viewBox="0 0 360 400" class="w-full h-full drop-shadow-[0_16px_32px_rgba(225,29,72,0.3)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Degradado piel cálida radiante -->
+                                <linearGradient id="peruSkin" x1="150" y1="80" x2="210" y2="360" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#f3c1a2"/>
+                                    <stop offset="100%" stop-color="#dc9b78"/>
+                                </linearGradient>
+                                <!-- Degradado rulos castaño oscuro con brillo -->
+                                <linearGradient id="darkCurlsGrad" x1="130" y1="55" x2="225" y2="165" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#3b1e10"/>
+                                    <stop offset="50%" stop-color="#1f0e06"/>
+                                    <stop offset="100%" stop-color="#4e2917"/>
+                                </linearGradient>
+                                <!-- Degradado falda blanca/marfil de Marinera -->
+                                <linearGradient id="marineraSkirtBase" x1="90" y1="200" x2="275" y2="335" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="55%" stop-color="#fff8ee"/>
+                                    <stop offset="100%" stop-color="#f5e6d3"/>
+                                </linearGradient>
+                                <!-- Degradado fajín carmesí -->
+                                <linearGradient id="crimsonSash" x1="152" y1="184" x2="206" y2="202" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#be123c"/>
+                                    <stop offset="50%" stop-color="#e11d48"/>
+                                    <stop offset="100%" stop-color="#9f1239"/>
+                                </linearGradient>
+                                <!-- Degradado corpiño marfil -->
+                                <linearGradient id="ivoryBodice" x1="155" y1="145" x2="205" y2="192" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#faeedc"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Guirnalda circular dorada de fondo -->
+                            <circle cx="180" cy="205" r="142" stroke="#f8d88c" stroke-width="1" stroke-dasharray="4 6" opacity="0.45"/>
+
+                            <!-- Rosas decorativas en el marco circular -->
+                            <g transform="translate(56, 225)">
+                                <circle cx="0" cy="0" r="13" fill="#e11d48" opacity="0.85"/>
+                                <circle cx="-4" cy="-3" r="6" fill="#fb7185"/>
+                                <circle cx="3" cy="3" r="6" fill="#f7a8c4"/>
+                                <circle cx="0" cy="0" r="2.5" fill="#fff4d4"/>
+                            </g>
+                            <g transform="translate(306, 215)">
+                                <circle cx="0" cy="0" r="13" fill="#f43f5e" opacity="0.85"/>
+                                <circle cx="3" cy="-3" r="6" fill="#f7a8c4"/>
+                                <circle cx="0" cy="0" r="2.5" fill="#f8d88c"/>
+                            </g>
+                            <!-- Destellos dorados alrededor -->
+                            <path d="M74 115 L77 123 L85 126 L77 129 L74 137 L71 129 L63 126 L71 123 Z" fill="#fff4d4"/>
+                            <path d="M294 140 L296 146 L302 148 L296 150 L294 156 L292 150 L286 148 L292 146 Z" fill="#f8d88c"/>
+
+                            <!-- ===============================================================
+                                 MELENA ABUNDANTE DE RULOS DEFINIDOS (Capa trasera con rebote)
+                                 =============================================================== -->
+                            <g class="marinera-curls-bounce" fill="url(#darkCurlsGrad)">
+                                <!-- Volumen superior y lateral de rulos -->
+                                <circle cx="148" cy="78" r="20"/>
+                                <circle cx="170" cy="68" r="21"/>
+                                <circle cx="192" cy="70" r="21"/>
+                                <circle cx="211" cy="82" r="20"/>
+                                <circle cx="136" cy="98" r="20"/>
+                                <circle cx="219" cy="102" r="20"/>
+                                <circle cx="130" cy="120" r="19"/>
+                                <circle cx="222" cy="124" r="19"/>
+                                <circle cx="136" cy="140" r="17"/>
+                                <circle cx="216" cy="144" r="17"/>
+                                <circle cx="148" cy="154" r="14"/>
+                                <circle cx="204" cy="156" r="14"/>
+                                <!-- Espirales de brillo cálido en los rizos -->
+                                <path d="M138 78 C130 84, 130 95, 138 100" stroke="#a1623b" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+                                <path d="M216 84 C224 90, 224 101, 216 106" stroke="#a1623b" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+                                <path d="M172 58 C180 52, 190 54, 194 61" stroke="#f8d88c" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+                                <path d="M132 116 C125 122, 126 132, 133 137" stroke="#a1623b" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+                                <path d="M218 120 C225 126, 224 136, 217 141" stroke="#a1623b" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+                            </g>
+
+                            <!-- ===============================================================
+                                 PIERNAS Y ZAPATOS DE TACÓN DE MARINERA
+                                 =============================================================== -->
+                            <!-- Pierna de apoyo -->
+                            <path d="M171 295 L167 355" stroke="url(#peruSkin)" stroke-width="9.5" stroke-linecap="round"/>
+                            <!-- Pierna en paso coqueto de zapateo/escobillado -->
+                            <path d="M189 295 C 202 320, 214 338, 224 352" stroke="url(#peruSkin)" stroke-width="9" stroke-linecap="round"/>
+                            <!-- Zapatos elegantes de baile -->
+                            <path d="M159 354 L173 354 L171 366 L156 366 C155 362, 157 357, 159 354 Z" fill="#fffdf9" stroke="#e11d48" stroke-width="1.2"/>
+                            <path d="M218 349 L231 345 L235 356 L221 360 C219 357, 218 352, 218 349 Z" fill="#fffdf9" stroke="#e11d48" stroke-width="1.2"/>
+
+                            <!-- ===============================================================
+                                 AMPLIA FALDA DE MARINERA PERUANA CON VUELOS Y BLONDAS (Mid-Twirl)
+                                 =============================================================== -->
+                            <g class="marinera-skirt-sway">
+                                <!-- Enagua interior con blonda carmesí y dorada -->
+                                <path d="M155 198 C 102 225, 68 272, 74 316 C 122 332, 238 332, 286 312 C 292 268, 256 224, 203 198 Z" fill="#fff1f2"/>
+                                <!-- Blonda inferior carmesí y oro -->
+                                <path d="M74 314 Q95 326 116 316 T158 318 T200 318 T242 316 T286 310" stroke="#e11d48" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                                <path d="M77 308 Q97 319 117 310 T158 312 T200 312 T241 310 T283 305" stroke="#eab308" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+
+                                <!-- Capa principal de falda amplia de Marinera -->
+                                <path d="M156 196 C 108 218, 72 260, 76 302 C 110 294, 136 312, 178 308 C 222 312, 252 292, 284 298 C 286 258, 250 218, 202 196 Z" fill="url(#marineraSkirtBase)"/>
+
+                                <!-- Pliegues dinámicos del vuelo de la falda -->
+                                <path d="M164 202 C 138 238, 118 274, 112 301" stroke="#e5d3bc" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M179 202 C 178 242, 177 278, 178 308" stroke="#e5d3bc" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M194 202 C 218 238, 238 272, 246 299" stroke="#e5d3bc" stroke-width="1.8" stroke-linecap="round"/>
+
+                                <!-- Segundo vuelo superior con encaje carmesí y dorado -->
+                                <path d="M156 196 C 124 214, 98 242, 96 266 C 126 260, 152 272, 180 268 C 208 272, 234 258, 262 264 C 260 240, 234 214, 202 196 Z" fill="#ffffff" opacity="0.95"/>
+                                <path d="M96 266 Q116 274 136 266 T178 268 T220 266 T262 264" stroke="#e11d48" stroke-width="2.6" fill="none"/>
+                                <path d="M99 261 Q118 268 137 261 T178 263 T219 261 T259 259" stroke="#eab308" stroke-width="1.3" stroke-dasharray="3 3" fill="none"/>
+
+                                <!-- Encaje en el borde de la falda principal -->
+                                <path d="M76 302 Q102 312 128 302 T180 307 T232 301 T284 298" stroke="#e11d48" stroke-width="3" fill="none"/>
+                                <path d="M79 296 Q104 305 129 296 T180 301 T231 295 T281 292" stroke="#eab308" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+                            </g>
+
+                            <!-- ===============================================================
+                                 BRAZO IZQUIERDO SOSTENIENDO CON COQUETERÍA LA FALDA
+                                 =============================================================== -->
+                            <path d="M156 154 C 132 174, 114 204, 102 238" stroke="url(#peruSkin)" stroke-width="8.2" stroke-linecap="round"/>
+                            <!-- Mano delicada tomando el vuelo de la falda -->
+                            <circle cx="101" cy="240" r="5.2" fill="url(#peruSkin)"/>
+
+                            <!-- ===============================================================
+                                 BRAZO DERECHO ELEVADO AGITANDO EL PAÑUELO BLANCO DE MARINERA
+                                 =============================================================== -->
+                            <path d="M202 154 C 226 142, 244 122, 255 96" stroke="url(#peruSkin)" stroke-width="8.2" stroke-linecap="round"/>
+                            <!-- Mano sosteniendo el pañuelo -->
+                            <circle cx="256" cy="95" r="5" fill="url(#peruSkin)"/>
+
+                            <!-- Pañuelo Blanco con Encaje (Animado) -->
+                            <g class="marinera-panuelo-wave">
+                                <path d="M256 95 C 272 74, 298 66, 318 76 C 314 98, 304 120, 286 130 C 270 120, 260 108, 256 95 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+                                <!-- Detalle de encaje dorado y carmesí en el pañuelo -->
+                                <path d="M262 94 C 275 78, 296 72, 312 80 C 308 98, 300 115, 285 123" stroke="#eab308" stroke-width="1.2" stroke-dasharray="2.5 2.5" fill="none"/>
+                                <path d="M318 76 C 314 98, 304 120, 286 130" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="2 3" fill="none"/>
+                            </g>
+
+                            <!-- ===============================================================
+                                 CORPIÑO MARFIL CON ENCAJES CARMESÍ Y ORO + FAJÍN CARMESÍ
+                                 =============================================================== -->
+                            <!-- Mangas bombachas / volantes de encaje -->
+                            <ellipse cx="153" cy="153" rx="11" ry="8" transform="rotate(-25 153 153)" fill="#ffffff" stroke="#e11d48" stroke-width="1.4"/>
+                            <ellipse cx="205" cy="153" rx="11" ry="8" transform="rotate(25 205 153)" fill="#ffffff" stroke="#e11d48" stroke-width="1.4"/>
+
+                            <!-- Torso / Corpiño ajustado -->
+                            <path d="M157 148 L201 148 L197 188 L161 188 Z" fill="url(#ivoryBodice)"/>
+                            <!-- Escote y pechera con encaje carmesí y dorado -->
+                            <path d="M161 148 Q179 164 197 148" stroke="#e11d48" stroke-width="2.4" fill="none"/>
+                            <path d="M164 152 Q179 167 194 152" stroke="#eab308" stroke-width="1.4" stroke-dasharray="2.5 2" fill="none"/>
+                            <line x1="179" y1="158" x2="179" y2="186" stroke="#e11d48" stroke-width="1.4" stroke-dasharray="3 2"/>
+
+                            <!-- Fajín Carmesí en la cintura con caída de cinta -->
+                            <rect x="159" y="185" width="40" height="13" rx="4" fill="url(#crimsonSash)"/>
+                            <path d="M161 188 H197 M161 195 H197" stroke="#f8d88c" stroke-width="1.1"/>
+                            <!-- Lazo y cintas cayendo del fajín -->
+                            <path d="M167 197 L158 226 L166 223 L172 198 Z" fill="#be123c"/>
+                            <path d="M174 198 L171 232 L178 228 L179 198 Z" fill="#e11d48"/>
+
+                            <!-- ===============================================================
+                                 CUELLO, ROSTRO EXPRESIVO Y RULOS FRONTALES CON ROSAS
+                                 =============================================================== -->
+                            <rect x="174" y="128" width="10" height="22" rx="5" fill="url(#peruSkin)"/>
+                            <!-- Aretes filigrana dorada -->
+                            <circle cx="159" cy="116" r="3" fill="#f8d88c"/>
+                            <circle cx="199" cy="116" r="3" fill="#f8d88c"/>
+
+                            <!-- Rostro ovalado dulce y radiante -->
+                            <ellipse cx="179" cy="109" rx="18" ry="21.5" fill="url(#peruSkin)"/>
+
+                            <!-- Rulos frontales enmarcando su frente y mejillas -->
+                            <g class="marinera-curls-bounce" fill="url(#darkCurlsGrad)">
+                                <circle cx="161" cy="91" r="11"/>
+                                <circle cx="176" cy="86" r="11.5"/>
+                                <circle cx="192" cy="89" r="11"/>
+                                <circle cx="157" cy="106" r="9.5"/>
+                                <circle cx="201" cy="105" r="9.5"/>
+                            </g>
+
+                            <!-- Rosas rojas y rosadas adornando sus rulos (Tocado tradicional de Marinera) -->
+                            <g transform="translate(196, 82)">
+                                <!-- Hojas verdes -->
+                                <path d="M-8 6 C-16 2, -16 -6, -8 -6 Z" fill="#15803d"/>
+                                <path d="M10 8 C18 6, 18 -2, 10 -4 Z" fill="#166534"/>
+                                <!-- Rosa roja principal -->
+                                <circle cx="0" cy="0" r="9.5" fill="#e11d48"/>
+                                <circle cx="-2" cy="-2" r="5" fill="#fb7185"/>
+                                <circle cx="0" cy="0" r="2.2" fill="#fff4d4"/>
+                                <!-- Rosa rosada acompañante -->
+                                <circle cx="11" cy="6" r="7" fill="#f7a8c4"/>
+                                <circle cx="11" cy="6" r="2.5" fill="#e11d48"/>
+                            </g>
+
+                            <!-- Cejas, ojos alegres, mejillas sonrosadas y sonrisa radiante -->
+                            <path d="M168 103 Q172 100.5 176 103" stroke="#2b160c" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M182 103 Q186 100.5 190 103" stroke="#2b160c" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Ojos expresivos -->
+                            <path d="M168.5 109 Q172 106 175.5 109" stroke="#2b160c" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M182.5 109 Q186 106 189.5 109" stroke="#2b160c" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Rubor suave -->
+                            <circle cx="167" cy="115" r="3.2" fill="#f43f5e" opacity="0.38"/>
+                            <circle cx="191" cy="115" r="3.2" fill="#f43f5e" opacity="0.38"/>
+                            <!-- Sonrisa abierta y feliz -->
+                            <path d="M173 119 Q179 125.5 185 119 Z" fill="#ffffff" stroke="#be123c" stroke-width="1.3" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <span class="mt-1 px-4 py-1 rounded-full bg-rose-500/15 border border-amber-200/35 text-xs text-champagne font-medium tracking-wide">
+                        💃 Rulos, gracia y elegancia en cada paso
+                    </span>
+                </div>
+
+                <!-- Mensaje Principal y Dedicatoria -->
+                <div class="md:col-span-6 text-center md:text-left space-y-4">
+                    <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-crimson/20 border border-rosegold/40 text-rosegold text-xs font-semibold">
+                        <span>🌹</span> Edición Especial • 18 Años
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold shimmer-gold-title leading-tight">
+                        ✨ ¡Feliz 18 Sky! ✨
+                    </h1>
+
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-light">
+                        Hoy celebramos tus <strong class="text-champagne font-semibold">18 años</strong> y toda la magia que llevas contigo, <strong class="text-rosegold font-semibold">Cielo</strong>. Que nunca falte música para que tus rulos bailen al compás de la vida, que cada pañuelo al viento anuncie nuevos sueños cumplidos y que sigas iluminando cada escenario con tu sonrisa y tu arte.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2.5 text-xs text-amber-100/90">
+                        <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">🌸 Jardín Estrellado</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">💃 Pasión por la Danza</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">✨ Rulos con Luz Propia</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             4. TECH CONSOLE (cielo_os v18.0)
+             ===================================================================== -->
+        <section class="glass-floral-card rounded-[1.75rem] p-5 sm:p-7 border border-amber-200/30">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-300"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                    <span class="ml-2 font-mono text-xs text-slate-300">cielo_os v18.0 — bash</span>
+                </div>
+                <button id="rerun-terminal-btn" class="text-xs font-mono text-champagne/85 hover:text-champagne transition cursor-pointer">
+                    ↻ Reejecutar
+                </button>
+            </div>
+
+            <div id="terminal-output" class="font-mono text-xs sm:text-sm space-y-2.5 text-slate-200 min-h-[135px] leading-relaxed">
+                <!-- Se escribe con animación typewriter -->
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             5. PASTEL FLORAL DE 18 AÑOS (Velas "18" encendidas + "Soplar las velas 🎂")
+             ===================================================================== -->
+        <section class="glass-floral-card rounded-[2rem] p-6 sm:p-9 text-center relative overflow-hidden">
+            <div class="max-w-xl mx-auto space-y-5">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-amber-300/10 border border-amber-200/35 text-champagne font-mono text-xs">
+                    ✨ PEDIR UN DESEO • 18 AÑOS
+                </span>
+
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+                    Cierra los ojos, dale un clic a las velas y pide tu deseo o te pego XD 
+                </h2>
+
+                <!-- SVG Pastel Floral con Velas "1" y "8" -->
+                <div class="relative w-60 h-60 sm:w-68 sm:h-68 mx-auto flex items-center justify-center">
+                    <svg viewBox="0 0 260 250" class="w-full h-full drop-shadow-[0_14px_28px_rgba(248,216,140,0.24)]">
+                        <defs>
+                            <linearGradient id="cakeLower" x1="45" y1="150" x2="215" y2="205" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#f7a8c4"/>
+                                <stop offset="50%" stop-color="#f43f5e"/>
+                                <stop offset="100%" stop-color="#be123c"/>
+                            </linearGradient>
+                            <linearGradient id="cakeUpper" x1="72" y1="106" x2="188" y2="150" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fff9eb"/>
+                                <stop offset="100%" stop-color="#f5dec0"/>
+                            </linearGradient>
+                            <radialGradient id="candleFlameGrad" cx="50%" cy="60%" r="55%">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="45%" stop-color="#fde047"/>
+                                <stop offset="85%" stop-color="#f97316"/>
+                                <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+
+                        <!-- Plato dorado -->
+                        <ellipse cx="130" cy="212" rx="102" ry="13" fill="#f8d88c" opacity="0.88"/>
+                        <ellipse cx="130" cy="209" rx="94" ry="9" fill="#fff7df"/>
+
+                        <!-- Piso inferior -->
+                        <rect x="52" y="152" width="156" height="54" rx="15" fill="url(#cakeLower)"/>
+                        <!-- Glaseado blanco ondulado -->
+                        <path d="M52 163 Q71 177 90 163 T128 163 T166 163 T208 163 L208 155 Q208 148 196 148 L64 148 Q52 148 52 155 Z" fill="#fff7f9"/>
+                        <!-- Perlas doradas -->
+                        <g fill="#f8d88c">
+                            <circle cx="66" cy="202" r="3.4"/><circle cx="82" cy="204" r="3.4"/><circle cx="98" cy="205" r="3.4"/>
+                            <circle cx="114" cy="205" r="3.4"/><circle cx="130" cy="205" r="3.4"/><circle cx="146" cy="205" r="3.4"/>
+                            <circle cx="162" cy="205" r="3.4"/><circle cx="178" cy="204" r="3.4"/><circle cx="194" cy="202" r="3.4"/>
+                        </g>
+
+                        <!-- Piso superior -->
+                        <rect x="76" y="106" width="108" height="46" rx="13" fill="url(#cakeUpper)"/>
+                        <rect x="76" y="142" width="108" height="6" rx="3" fill="#f8d88c"/>
+
+                        <!-- Rosas decorativas en el pastel -->
+                        <g>
+                            <circle cx="84" cy="112" r="11" fill="#e11d48"/>
+                            <circle cx="84" cy="112" r="5.5" fill="#f7a8c4"/>
+                            <circle cx="84" cy="112" r="2.2" fill="#fff4d4"/>
+
+                            <circle cx="101" cy="131" r="9" fill="#f7a8c4"/>
+                            <circle cx="101" cy="131" r="3.2" fill="#f8d88c"/>
+
+                            <circle cx="176" cy="152" r="12" fill="#e11d48"/>
+                            <circle cx="176" cy="152" r="6" fill="#fb7185"/>
+                            <circle cx="176" cy="152" r="2.4" fill="#fff4d4"/>
+
+                            <circle cx="68" cy="182" r="9.5" fill="#f7a8c4"/>
+                            <circle cx="68" cy="182" r="3.5" fill="#fff4d4"/>
+                        </g>
+
+                        <!-- Velas numéricas "1" y "8" -->
+                        <!-- Vela "1" -->
+                        <g>
+                            <path d="M107 72 L114 66 L114 104" stroke="#f8d88c" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <path d="M107 72 L114 66 L114 104" stroke="#fff9eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <line x1="114" y1="64" x2="114" y2="57" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Vela "8" -->
+                        <g>
+                            <circle cx="146" cy="76" r="8.5" stroke="#f8d88c" stroke-width="6.5" fill="none"/>
+                            <circle cx="146" cy="94" r="9.5" stroke="#f8d88c" stroke-width="6.5" fill="none"/>
+                            <circle cx="146" cy="76" r="8.5" stroke="#fff9eb" stroke-width="3.2" fill="none"/>
+                            <circle cx="146" cy="94" r="9.5" stroke="#fff9eb" stroke-width="3.2" fill="none"/>
+                            <line x1="146" y1="65" x2="146" y2="57" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Humo al apagar las velas -->
+                        <g id="cake-smoke-group">
+                            <path class="smoke-strand" d="M114 55 C109 46, 119 37, 113 26" stroke="#cbd5e1" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                            <path class="smoke-strand" style="animation-delay: 0.2s;" d="M146 55 C152 45, 141 36, 148 25" stroke="#e2e8f0" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                        </g>
+
+                        <!-- Llamas de ambas velas -->
+                        <g id="cake-flames-group" class="candle-flame-anim" title="Toca para soplar las velas">
+                            <!-- Llama sobre el "1" -->
+                            <circle cx="114" cy="43" r="15" fill="#fde047" opacity="0.22"/>
+                            <path d="M114 26 C122 37, 123 48, 114 54 C105 48, 106 37, 114 26 Z" fill="url(#candleFlameGrad)"/>
+                            <!-- Llama sobre el "8" -->
+                            <circle cx="146" cy="43" r="15" fill="#fde047" opacity="0.22"/>
+                            <path d="M146 26 C154 37, 155 48, 146 54 C137 48, 138 37, 146 26 Z" fill="url(#candleFlameGrad)"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Botones para soplar / volver a encender -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <button id="blow-candles-btn" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-crimson via-rosegold to-champagne text-midnight font-bold text-sm shadow-[0_0_28px_rgba(225,29,72,0.45)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                        Soplar las velas 🎂
+                    </button>
+                    <button id="relight-candles-btn" class="hidden px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-amber-200/30 text-champagne text-xs font-medium transition cursor-pointer">
+                        🕯️ Encender velas de nuevo
+                    </button>
+                </div>
+
+                <!-- Deseo revelado -->
+                <div id="birthday-wish-card" class="hidden pt-2">
+                    <div class="glass-gold-card rounded-2xl p-5 space-y-2 border border-amber-200/55">
+                        <p class="font-mono text-xs uppercase tracking-widest text-champagne">
+                            ✨ ¡Deseo enviado a las estrellas! ✨
+                        </p>
+                        <p class="font-serif italic text-base sm:text-lg text-white leading-relaxed">
+                            "Que este nuevo año de vida cuando mires al cielo veas nubes en forma de unve, pasos llenos de alegría, rulos siempre al viento y sueños cumplidos más allá del cielo, Cielo."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             6. JARDÍN DE MENSAJES (4 TARJETAS FLORALES INTERACTIVAS QUE SE VOLTEAN)
+             ===================================================================== -->
+        <section class="space-y-4">
+            <div class="text-center space-y-1">
+                <span class="font-mono text-xs text-rosegold uppercase tracking-widest">Jardín de Mensajes</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+                    Toca cada flor para descubrir un mensaje 🌸
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Tarjeta Floral 1: Sus Rulos -->
+                <div class="flower-flip-card" data-card-index="1">
+                    <div class="flower-flip-inner">
+                        <!-- Frente -->
+                        <div class="flower-card-face glass-floral-card p-6 flex flex-col items-center justify-center text-center space-y-2.5 hover:border-amber-200/60 transition">
+                            <span class="text-3xl">🌺</span>
+                            <h3 class="font-serif font-bold text-lg text-champagne">Flor de tus Rulos</h3>
+                            <p class="text-xs text-slate-300">Toca para abrir este pétalo ✨</p>
+                        </div>
+                        <!-- Reverso -->
+                        <div class="flower-card-face flower-card-back glass-gold-card p-6 flex flex-col items-center justify-center text-center space-y-2">
+                            <span class="text-xs font-mono text-champagne uppercase tracking-wider">Tus Rulos Únicos</span>
+                            <p class="text-sm text-white leading-relaxed font-light">
+                                “Tus rulos aparte de muchos quimicos XD  tienen una magia especial: llenos de vida, movimiento y personalidad, hacen que tu presencia sea inolvidable donde vayas.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Floral 2: Su Gracia en la Marinera -->
+                <div class="flower-flip-card" data-card-index="2">
+                    <div class="flower-flip-inner">
+                        <div class="flower-card-face glass-floral-card p-6 flex flex-col items-center justify-center text-center space-y-2.5 hover:border-amber-200/60 transition">
+                            <span class="text-3xl">🌹</span>
+                            <h3 class="font-serif font-bold text-lg text-rosegold">Flor de la Marinera</h3>
+                            <p class="text-xs text-slate-300">Toca para abrir este pétalo ✨</p>
+                        </div>
+                        <div class="flower-card-face flower-card-back glass-gold-card p-6 flex flex-col items-center justify-center text-center space-y-2">
+                            <span class="text-xs font-mono text-rosegold uppercase tracking-wider">Tu Gracia al Bailar</span>
+                            <p class="text-sm text-white leading-relaxed font-light">
+                                “Cuando agitas el pañuelo y haces volar tu falda, demuestras que la elegancia y el arte nacen del corazón. ¡Brillas en la pista!”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Floral 3: Su Sonrisa -->
+                <div class="flower-flip-card" data-card-index="3">
+                    <div class="flower-flip-inner">
+                        <div class="flower-card-face glass-floral-card p-6 flex flex-col items-center justify-center text-center space-y-2.5 hover:border-amber-200/60 transition">
+                            <span class="text-3xl">🌸</span>
+                            <h3 class="font-serif font-bold text-lg text-champagne">Flor de tu Sonrisa</h3>
+                            <p class="text-xs text-slate-300">Toca para abrir este pétalo ✨</p>
+                        </div>
+                        <div class="flower-card-face flower-card-back glass-gold-card p-6 flex flex-col items-center justify-center text-center space-y-2">
+                            <span class="text-xs font-mono text-champagne uppercase tracking-wider">Tu Luz Natural</span>
+                            <p class="text-sm text-white leading-relaxed font-light">
+                                “Tienes que mostrar mas tus dientes pues. Que nunca te falten motivos para sonreír con esas ganas tan tuyas.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Floral 4: Sus 18 Años -->
+                <div class="flower-flip-card" data-card-index="4">
+                    <div class="flower-flip-inner">
+                        <div class="flower-card-face glass-floral-card p-6 flex flex-col items-center justify-center text-center space-y-2.5 hover:border-amber-200/60 transition">
+                            <span class="text-3xl">🌷</span>
+                            <h3 class="font-serif font-bold text-lg text-rosegold">Flor de los 18</h3>
+                            <p class="text-xs text-slate-300">Toca para abrir este pétalo ✨</p>
+                        </div>
+                        <div class="flower-card-face flower-card-back glass-gold-card p-6 flex flex-col items-center justify-center text-center space-y-2">
+                            <span class="text-xs font-mono text-rosegold uppercase tracking-wider">Nueva Etapa</span>
+                            <p class="text-sm text-white leading-relaxed font-light">
+                                “Bienvenido este nueva temporada del anime: que tus 18 estén llenos de Bendiciones, metas cumplidas, aventuras hermosas y momentos que siempre quieras recordar.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             7. TICKET VIP CANJEABLE (#CIELO-18-VIP)
+             ===================================================================== -->
+        <section class="glass-gold-card vip-ticket-perforated rounded-[2rem] p-6 sm:p-8 relative overflow-hidden">
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left max-w-lg">
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                        <span class="px-3 py-0.5 rounded-md bg-champagne/20 border border-champagne/45 text-champagne font-mono text-xs font-semibold">
+                            #CIELO-18-VIP
+                        </span>
+                        <span class="text-xs font-mono text-rosegold uppercase tracking-wider">
+                            ✨ Pase Oficial de Cumpleaños
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+                        Vale para la extensión de amistad
+                    </h3>
+
+                    <p class="text-slate-200 text-xs sm:text-sm leading-relaxed font-light">
+                        Válido para celebrar tus <strong class="text-champagne">18 años</strong> como mereces: tú eliges los años de amistad, pueden ser 2 o 40 o 10000 años y con trato VIP garantizado.
+                    </p>
+                </div>
+
+                <!-- Línea divisoria perforada en desktop -->
+                <div class="hidden md:block h-24 border-l-2 border-dashed border-amber-200/35"></div>
+
+                <div class="flex flex-col items-center justify-center shrink-0">
+                    <button id="redeem-vip-btn" class="px-6 py-4 rounded-2xl bg-gradient-to-r from-champagne via-rosegold to-amber-200 text-midnight font-extrabold text-sm shadow-[0_10px_28px_rgba(248,216,140,0.38)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                        Canjear mi regalo 🎟️
+                    </button>
+
+                    <div id="vip-redeemed-badge" class="hidden border-2 border-emerald-300 bg-emerald-950/85 text-emerald-300 font-mono font-bold uppercase tracking-wider px-5 py-3 rounded-xl text-xs sm:text-sm text-center shadow-[0_0_25px_rgba(52,211,153,0.4)]">
+                        ✓ ¡VALE CANJEADO!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pie de página -->
+        <footer class="text-center pb-8 pt-2 space-y-1">
+            <p class="text-xs text-slate-300">
+                Hecho con código, flores y mucho cariño para <span class="text-champagne font-semibold">Cielo</span> 🌸✨
+            </p>
+            <p class="font-mono text-[10px] text-slate-500">
+                cielo_os v18.0 • #CIELO-18-VIP
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        /**
+         * =====================================================================
+         * 1. MOTOR GRÁFICO EN CANVAS (60 FPS):
+         *    - Estrellas titilantes y pétalos de rosa cayendo
+         *    - Flores procedurales brotando automáticamente en #splash-screen
+         *    - Flores procedurales al tocar/hacer clic en cualquier pantalla
+         *    - Cascada continua de DESTELLOS durante 5000ms (5 segundos) en #main-screen
+         * =====================================================================
+         */
+        const canvas = document.getElementById('garden-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = 0;
+        let height = 0;
+
+        let stars = [];
+        let fallingPetals = [];
+        let bloomingFlowers = [];
+        let sparkleParticles = [];
+
+        let isSplashActive = true;
+        let splashAutoBloomInterval = null;
+        let sparkleCascadeEndTime = 0;
+        let sparkleStatusTimer = null;
+
+        const flowerThemes = [
+            { outer: '#e11d48', inner: '#fb7185', core: '#fff4d4' }, // Rosa carmesí
+            { outer: '#f7a8c4', inner: '#ffe4ef', core: '#f8d88c' }, // Rosa pastel
+            { outer: '#f43f5e', inner: '#fda4af', core: '#fef08a' }, // Rosa coral
+            { outer: '#f8d88c', inner: '#fff7df', core: '#e11d48' }  // Flor dorada
+        ];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            if (stars.length === 0) initAmbientParticles();
+        }
+
+        function initAmbientParticles() {
+            stars = [];
+            const starCount = Math.min(120, Math.floor((width * height) / 9500));
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 1.6 + 0.35,
+                    alpha: Math.random(),
+                    delta: (Math.random() * 0.015 + 0.004) * (Math.random() > 0.5 ? 1 : -1),
+                    color: Math.random() > 0.3 ? '#fff7df' : '#f7a8c4'
+                });
+            }
+
+            fallingPetals = [];
+            const petalCount = Math.min(32, Math.floor(width / 30) + 12);
+            for (let i = 0; i < petalCount; i++) {
+                fallingPetals.push(createRosePetal(true));
+            }
+        }
+
+        function createRosePetal(randomY = false) {
+            const colors = ['#e11d48', '#f43f5e', '#f7a8c4', '#fde68a'];
+            return {
+                x: Math.random() * width,
+                y: randomY ? Math.random() * height : -20,
+                size: Math.random() * 6.5 + 4.5,
+                speedY: Math.random() * 1.05 + 0.45,
+                swayAmp: Math.random() * 1.3 + 0.4,
+                swayFreq: Math.random() * 0.025 + 0.01,
+                phase: Math.random() * Math.PI * 2,
+                rotation: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 0.035,
+                flip: Math.random() * Math.PI,
+                flipSpeed: Math.random() * 0.045 + 0.02,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                alpha: Math.random() * 0.45 + 0.38
+            };
+        }
+
+        /**
+         * Genera una flor procedural de múltiples pétalos en (x, y)
+         */
+        function spawnBloomingFlower(x, y, maxRadius = null, withSparkleBurst = true) {
+            const theme = flowerThemes[Math.floor(Math.random() * flowerThemes.length)];
+            const petals = Math.random() > 0.4 ? 6 : 5;
+            const targetR = maxRadius || (Math.random() * 18 + 20);
+
+            bloomingFlowers.push({
+                x,
+                y,
+                radius: 1,
+                targetRadius: targetR,
+                petals,
+                rotation: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 0.012,
+                theme,
+                age: 0,
+                maxAge: 210, // ~3.5 segundos de vida suave
+                alpha: 1
+            });
+
+            if (withSparkleBurst) {
+                emitDestellos(x, y, 14, 3.6, false);
+            }
+        }
+
+        /**
+         * Emite destellos (flares de 4 puntas + polvo luminoso dorado, blanco y rosa-oro)
+         */
+        function emitDestellos(x, y, count = 20, maxSpeed = 5.5, isCascadingRain = false) {
+            const palette = ['#fff7df', '#ffffff', '#f8d88c', '#f7a8c4', '#fde047'];
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = isCascadingRain ? (Math.random() * 2.2 + 0.5) : (Math.random() * maxSpeed + 1);
+                const vx = isCascadingRain ? (Math.random() - 0.5) * 2.4 : Math.cos(angle) * speed;
+                const vy = isCascadingRain ? (Math.random() * 2.6 + 0.8) : (Math.sin(angle) * speed - 0.6);
+
+                sparkleParticles.push({
+                    x,
+                    y,
+                    vx,
+                    vy,
+                    size: Math.random() * 4.5 + 2,
+                    color: palette[Math.floor(Math.random() * palette.length)],
+                    alpha: 1,
+                    decay: isCascadingRain ? (Math.random() * 0.012 + 0.008) : (Math.random() * 0.016 + 0.011),
+                    gravity: isCascadingRain ? 0.02 : 0.055,
+                    isStarFlare: Math.random() > 0.32,
+                    rotation: Math.random() * Math.PI,
+                    rotSpeed: (Math.random() - 0.5) * 0.08,
+                    twinklePhase: Math.random() * Math.PI * 2
+                });
+            }
+        }
+
+        /**
+         * Inicia la cascada continua de DESTELLOS durante 5 SEGUNDOS (5000ms)
+         */
+        function triggerFiveSecondDestellos() {
+            sparkleCascadeEndTime = performance.now() + 5000;
+
+            const statusEl = document.getElementById('sparkle-status-text');
+            if (statusEl) {
+                statusEl.textContent = '✨ Lluvia de destellos activa (5s)...';
+                statusEl.classList.add('text-champagne');
+            }
+
+            // Explosión inicial de destellos y flores en el centro
+            emitDestellos(width * 0.5, height * 0.35, 55, 7.5, false);
+            emitDestellos(width * 0.25, height * 0.28, 35, 6.2, false);
+            emitDestellos(width * 0.75, height * 0.28, 35, 6.2, false);
+
+            if (sparkleStatusTimer) clearTimeout(sparkleStatusTimer);
+            sparkleStatusTimer = setTimeout(() => {
+                if (statusEl) {
+                    statusEl.textContent = 'Toca el cielo para crear flores 🌸';
+                    statusEl.classList.remove('text-champagne');
+                }
+            }, 5000);
+        }
+
+        /**
+         * Flores brotando automáticamente en la pantalla de inicio (#splash-screen)
+         */
+        function startSplashAutoBlooms() {
+            // Brotar 4 flores iniciales inmediatamente al cargar
+            const initialSpots = [
+                { x: width * 0.16, y: height * 0.22 },
+                { x: width * 0.84, y: height * 0.24 },
+                { x: width * 0.18, y: height * 0.78 },
+                { x: width * 0.82, y: height * 0.76 }
+            ];
+            initialSpots.forEach((spot, idx) => {
+                setTimeout(() => {
+                    if (isSplashActive) spawnBloomingFlower(spot.x, spot.y, 26, true);
+                }, idx * 220);
+            });
+
+            // Continuar brotando flores suavemente por toda la pantalla de inicio
+            splashAutoBloomInterval = setInterval(() => {
+                if (!isSplashActive) {
+                    clearInterval(splashAutoBloomInterval);
+                    return;
+                }
+                // Priorizar zonas alrededor y bordes para lucir sobre el fondo estrellado
+                let rx = Math.random() * width;
+                let ry = Math.random() * height;
+                if (Math.abs(rx - width * 0.5) < 140 && Math.abs(ry - height * 0.5) < 160) {
+                    rx = Math.random() > 0.5 ? width * (0.08 + Math.random() * 0.18) : width * (0.74 + Math.random() * 0.18);
+                }
+                spawnBloomingFlower(rx, ry, Math.random() * 16 + 18, true);
+            }, 720);
+        }
+
+        function drawFlower(f) {
+            ctx.save();
+            ctx.translate(f.x, f.y);
+            ctx.rotate(f.rotation);
+            ctx.globalAlpha = f.alpha;
+
+            // Resplandor floral suave
+            const glow = ctx.createRadialGradient(0, 0, 1, 0, 0, f.radius * 1.45);
+            glow.addColorStop(0, f.theme.outer + '55');
+            glow.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(0, 0, f.radius * 1.45, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Pétalos exteriores
+            for (let i = 0; i < f.petals; i++) {
+                ctx.save();
+                ctx.rotate((i * Math.PI * 2) / f.petals);
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(
+                    -f.radius * 0.48, -f.radius * 0.45,
+                    -f.radius * 0.42, -f.radius * 1.05,
+                    0, -f.radius
+                );
+                ctx.bezierCurveTo(
+                    f.radius * 0.42, -f.radius * 1.05,
+                    f.radius * 0.48, -f.radius * 0.45,
+                    0, 0
+                );
+                ctx.fillStyle = f.theme.outer;
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255, 244, 212, 0.45)';
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            // Pétalos interiores
+            const innerR = f.radius * 0.56;
+            for (let i = 0; i < f.petals; i++) {
+                ctx.save();
+                ctx.rotate(((i + 0.5) * Math.PI * 2) / f.petals);
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(
+                    -innerR * 0.45, -innerR * 0.4,
+                    -innerR * 0.35, -innerR,
+                    0, -innerR
+                );
+                ctx.bezierCurveTo(
+                    innerR * 0.35, -innerR,
+                    innerR * 0.45, -innerR * 0.4,
+                    0, 0
+                );
+                ctx.fillStyle = f.theme.inner;
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // Centro dorado
+            ctx.beginPath();
+            ctx.arc(0, 0, Math.max(2, f.radius * 0.18), 0, Math.PI * 2);
+            ctx.fillStyle = f.theme.core;
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function drawStarFlare(p) {
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation);
+            const pulse = 0.75 + 0.35 * Math.sin(p.twinklePhase);
+            ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha * pulse));
+            ctx.fillStyle = p.color;
+
+            if (p.isStarFlare) {
+                const rOuter = p.size * 2.1;
+                const rInner = p.size * 0.38;
+                ctx.beginPath();
+                for (let i = 0; i < 8; i++) {
+                    const r = i % 2 === 0 ? rOuter : rInner;
+                    const a = (i * Math.PI) / 4;
+                    if (i === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+                    else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+                }
+                ctx.closePath();
+                ctx.fill();
+            } else {
+                ctx.beginPath();
+                ctx.arc(0, 0, p.size * 0.65, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.restore();
+        }
+
+        function renderLoop(now) {
+            ctx.clearRect(0, 0, width, height);
+
+            // 1. Estrellas titilantes
+            for (const s of stars) {
+                s.alpha += s.delta;
+                if (s.alpha >= 1 || s.alpha <= 0.15) s.delta = -s.delta;
+                ctx.globalAlpha = Math.max(0.1, Math.min(1, s.alpha));
+                ctx.fillStyle = s.color;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+
+            // 2. Pétalos de rosa cayendo suavemente
+            for (let i = 0; i < fallingPetals.length; i++) {
+                const p = fallingPetals[i];
+                p.y += p.speedY;
+                p.phase += p.swayFreq;
+                p.x += Math.sin(p.phase) * p.swayAmp;
+                p.rotation += p.rotSpeed;
+                p.flip += p.flipSpeed;
+
+                if (p.y > height + 24) {
+                    fallingPetals[i] = createRosePetal(false);
+                    continue;
+                }
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation);
+                ctx.scale(1, Math.max(0.35, Math.abs(Math.cos(p.flip))));
+                ctx.globalAlpha = p.alpha;
+                ctx.fillStyle = p.color;
+
+                ctx.beginPath();
+                ctx.moveTo(0, -p.size);
+                ctx.bezierCurveTo(p.size * 0.85, -p.size * 0.4, p.size * 0.75, p.size * 0.65, 0, p.size);
+                ctx.bezierCurveTo(-p.size * 0.75, p.size * 0.65, -p.size * 0.85, -p.size * 0.4, 0, -p.size);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // 3. Cascada continua de DESTELLOS durante 5 segundos en la segunda pantalla
+            if (now < sparkleCascadeEndTime) {
+                // Emitir destellos dorados, blancos y rosa-oro por todo el ancho de la pantalla
+                for (let k = 0; k < 4; k++) {
+                    const sx = Math.random() * width;
+                    const sy = Math.random() * height * 0.75;
+                    emitDestellos(sx, sy, 2, 2.2, true);
+                }
+            }
+
+            // 4. Flores procedurales floreciendo
+            for (let i = bloomingFlowers.length - 1; i >= 0; i--) {
+                const f = bloomingFlowers[i];
+                f.age++;
+                f.rotation += f.rotSpeed;
+                f.radius += (f.targetRadius - f.radius) * 0.11;
+
+                if (f.age > f.maxAge - 55) {
+                    f.alpha = Math.max(0, (f.maxAge - f.age) / 55);
+                }
+
+                if (f.age >= f.maxAge) {
+                    bloomingFlowers.splice(i, 1);
+                    continue;
+                }
+
+                drawFlower(f);
+            }
+
+            // 5. Partículas de destellos y polvo estelar
+            for (let i = sparkleParticles.length - 1; i >= 0; i--) {
+                const sp = sparkleParticles[i];
+                sp.vx *= 0.98;
+                sp.vy += sp.gravity;
+                sp.x += sp.vx;
+                sp.y += sp.vy;
+                sp.rotation += sp.rotSpeed;
+                sp.twinklePhase += 0.22;
+                sp.alpha -= sp.decay;
+
+                if (sp.alpha <= 0) {
+                    sparkleParticles.splice(i, 1);
+                    continue;
+                }
+
+                drawStarFlare(sp);
+            }
+
+            requestAnimationFrame(renderLoop);
+        }
+
+        /**
+         * =====================================================================
+         * 2. MOTOR DE SONIDO CELESTIAL (Web Audio API — Sin archivos externos)
+         * =====================================================================
+         */
+        let audioCtx = null;
+        let isMuted = false;
+        let melodyTimers = [];
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioCtx();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playMusicBoxTone(freq, duration = 0.75, volume = 0.09, isHarmonic = false) {
+            if (isMuted) return;
+            try {
+                const ctxAudio = getAudioContext();
+                const now = ctxAudio.currentTime;
+
+                const osc = ctxAudio.createOscillator();
+                const bell = ctxAudio.createOscillator();
+                const gain = ctxAudio.createGain();
+                const bellGain = ctxAudio.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now);
+
+                bell.type = 'triangle';
+                bell.frequency.setValueAtTime(freq * 2, now);
+
+                bellGain.gain.setValueAtTime(volume * 0.2, now);
+                bellGain.gain.exponentialRampToValueAtTime(0.0001, now + duration * 0.45);
+
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.linearRampToValueAtTime(isHarmonic ? volume * 0.5 : volume, now + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+                osc.connect(gain);
+                bell.connect(bellGain);
+                bellGain.connect(gain);
+                gain.connect(ctxAudio.destination);
+
+                osc.start(now);
+                bell.start(now);
+                osc.stop(now + duration + 0.05);
+                bell.stop(now + duration + 0.05);
+            } catch (e) { /* Ignorar antes de gesto del usuario */ }
+        }
+
+        function playFlowerChime() {
+            const notes = [523.25, 587.33, 659.25, 783.99, 880.0, 1046.5];
+            const freq = notes[Math.floor(Math.random() * notes.length)];
+            playMusicBoxTone(freq, 0.65, 0.045, true);
+        }
+
+        function playCelebratoryMelody() {
+            stopCelebratoryMelody();
+            if (isMuted) return;
+
+            const melody = [
+                { f: 261.63, d: 0.35, t: 0.0, h: 174.61 },
+                { f: 261.63, d: 0.35, t: 0.38 },
+                { f: 293.66, d: 0.65, t: 0.76, h: 174.61 },
+                { f: 261.63, d: 0.65, t: 1.45 },
+                { f: 349.23, d: 0.65, t: 2.15, h: 220.00 },
+                { f: 329.63, d: 1.20, t: 2.85, h: 196.00 },
+
+                { f: 261.63, d: 0.35, t: 4.20, h: 196.00 },
+                { f: 261.63, d: 0.35, t: 4.58 },
+                { f: 293.66, d: 0.65, t: 4.96, h: 196.00 },
+                { f: 261.63, d: 0.65, t: 5.65 },
+                { f: 392.00, d: 0.65, t: 6.35, h: 261.63 },
+                { f: 349.23, d: 1.20, t: 7.05, h: 220.00 },
+
+                { f: 261.63, d: 0.35, t: 8.40, h: 174.61 },
+                { f: 261.63, d: 0.35, t: 8.78 },
+                { f: 523.25, d: 0.65, t: 9.16, h: 349.23 },
+                { f: 440.00, d: 0.65, t: 9.85, h: 261.63 },
+                { f: 349.23, d: 0.65, t: 10.55, h: 220.00 },
+                { f: 329.63, d: 0.65, t: 11.25 },
+                { f: 293.66, d: 1.20, t: 11.95, h: 233.08 },
+
+                { f: 466.16, d: 0.35, t: 13.30, h: 233.08 },
+                { f: 466.16, d: 0.35, t: 13.68 },
+                { f: 440.00, d: 0.65, t: 14.06, h: 261.63 },
+                { f: 349.23, d: 0.65, t: 14.75, h: 220.00 },
+                { f: 392.00, d: 0.65, t: 15.45, h: 261.63 },
+                { f: 349.23, d: 1.50, t: 16.15, h: 174.61 }
+            ];
+
+            melody.forEach(note => {
+                const timer = setTimeout(() => {
+                    playMusicBoxTone(note.f, note.d + 0.35, 0.095, false);
+                    if (note.h) playMusicBoxTone(note.h, note.d + 0.55, 0.055, true);
+                }, note.t * 1000);
+                melodyTimers.push(timer);
+            });
+        }
+
+        function stopCelebratoryMelody() {
+            melodyTimers.forEach(id => clearTimeout(id));
+            melodyTimers = [];
+        }
+
+        /**
+         * =====================================================================
+         * 3. CONSOLA TECNOLÓGICA (cielo_os v18.0) CON TYPEWRITER
+         * =====================================================================
+         */
+
+        
+       const terminalScript = [
+            { text: '$ ./iniciar_celebracion.sh --user="Cielo" --edad=18', cls: 'text-slate-400' },
+            { text: '[OK] Cargando rulos perfectos...', cls: 'text-rosegold' },
+            { text: '[OK] Modo Marinera Peruana activado...', cls: 'text-champagne' },
+            { text: '[OK] Nivel 18 desbloqueado', cls: 'text-emerald-300 font-semibold' },
+            { text: '> Sistema listo: ¡Que hoy y siempre brilles en cada escenario, Cielo! ✨', cls: 'text-amber-100' }
+        ];
+        
+
+        let typingTimer = null;
+
+        function runTerminalTypewriter() {
+            const container = document.getElementById('terminal-output');
+            container.innerHTML = '';
+            if (typingTimer) clearTimeout(typingTimer);
+
+            let lineIdx = 0;
+            let charIdx = 0;
+            let currentLineEl = null;
+
+            function typeStep() {
+                if (lineIdx >= terminalScript.length) {
+                    const cursor = document.createElement('span');
+                    cursor.className = 'term-cursor ml-1';
+                    if (currentLineEl) currentLineEl.appendChild(cursor);
+                    return;
+                }
+
+                const item = terminalScript[lineIdx];
+                if (charIdx === 0) {
+                    currentLineEl = document.createElement('p');
+                    currentLineEl.className = item.cls;
+                    container.appendChild(currentLineEl);
+                }
+
+                currentLineEl.textContent += item.text.charAt(charIdx);
+                charIdx++;
+
+                if (charIdx < item.text.length) {
+                    typingTimer = setTimeout(typeStep, 22);
+                } else {
+                    lineIdx++;
+                    charIdx = 0;
+                    typingTimer = setTimeout(typeStep, 260);
+                }
+            }
+
+            typeStep();
+        }
+
+        /**
+         * =====================================================================
+         * 4. NOTIFICACIONES TOAST E INTERACTIVIDAD COMPLETA
+         * =====================================================================
+         */
+        let toastTimeout = null;
+        function showToast(icon, message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-icon').textContent = icon;
+            document.getElementById('toast-text').textContent = message;
+
+            toast.classList.remove('opacity-0', '-translate-y-8');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-8');
+            }, 3400);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        window.onload = function () {
+            resizeCanvas();
+            startSplashAutoBlooms();
+            requestAnimationFrame(renderLoop);
+
+            // Tocar/hacer clic en cualquier parte de la pantalla florece una flor con melodía
+            document.addEventListener('pointerdown', (e) => {
+                spawnBloomingFlower(e.clientX, e.clientY);
+                playFlowerChime();
+            });
+
+            // 1. Botón "Abrir mi regalo ✨" -> Transición a #main-screen + 5s de Destellos
+            const openGiftBtn = document.getElementById('open-gift-btn');
+            const splashScreen = document.getElementById('splash-screen');
+            const mainScreen = document.getElementById('main-screen');
+
+            openGiftBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isSplashActive = false;
+                if (splashAutoBloomInterval) clearInterval(splashAutoBloomInterval);
+
+                // Iniciar melodía celebratoria y activar los 5 segundos de destellos
+                playCelebratoryMelody();
+                triggerFiveSecondDestellos();
+
+                splashScreen.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    splashScreen.classList.add('hidden');
+                    mainScreen.classList.remove('hidden');
+                    requestAnimationFrame(() => {
+                        mainScreen.classList.remove('opacity-0');
+                    });
+                    runTerminalTypewriter();
+                }, 480);
+            });
+
+            // Botón "✨ Repetir destellos" (vuelve a lanzar los 5 segundos de destellos)
+            document.getElementById('repeat-sparkles-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                triggerFiveSecondDestellos();
+                showToast('✨', '¡Lluvia de destellos dorados por 5 segundos!');
+            });
+
+            // Toggle Mute / Unmute Audio
+            const audioToggleBtn = document.getElementById('audio-toggle-btn');
+            const audioIcon = document.getElementById('audio-toggle-icon');
+            const audioLabel = document.getElementById('audio-toggle-label');
+
+            audioToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isMuted = !isMuted;
+                if (isMuted) {
+                    stopCelebratoryMelody();
+                    audioIcon.textContent = '🔇';
+                    if (audioLabel) audioLabel.textContent = 'Silencio';
+                    showToast('🔇', 'Música silenciada');
+                } else {
+                    audioIcon.textContent = '🔊';
+                    if (audioLabel) audioLabel.textContent = 'Música';
+                    playCelebratoryMelody();
+                    showToast('🎶', 'Música celebratoria activada');
+                }
+            });
+
+            // Reejecutar consola cielo_os v18.0
+            document.getElementById('rerun-terminal-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                runTerminalTypewriter();
+            });
+
+            // 5. Pastel Floral de 18 Años: "Soplar las velas 🎂"
+            const blowCandlesBtn = document.getElementById('blow-candles-btn');
+            const relightCandlesBtn = document.getElementById('relight-candles-btn');
+            const flamesGroup = document.getElementById('cake-flames-group');
+            const smokeGroup = document.getElementById('cake-smoke-group');
+            const wishCard = document.getElementById('birthday-wish-card');
+
+            function blowOutCandles() {
+                if (flamesGroup.classList.contains('hidden')) return;
+
+                flamesGroup.classList.add('hidden');
+                smokeGroup.querySelectorAll('.smoke-strand').forEach(el => {
+                    el.classList.remove('smoke-rising');
+                    void el.offsetWidth;
+                    el.classList.add('smoke-rising');
+                });
+
+                // Arpegio mágico al soplar las velas
+                [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((freq, i) => {
+                    setTimeout(() => playMusicBoxTone(freq, 0.85, 0.08, false), i * 95);
+                });
+
+                emitDestellos(width * 0.5, height * 0.45, 45, 7, false);
+                wishCard.classList.remove('hidden');
+                blowCandlesBtn.classList.add('hidden');
+                relightCandlesBtn.classList.remove('hidden');
+                showToast('🎂', '¡Velas de los 18 sopladas! Que se cumplan todos tus deseos ✨');
+            }
+
+            blowCandlesBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                blowOutCandles();
+            });
+
+            flamesGroup.addEventListener('click', (e) => {
+                e.stopPropagation();
+                blowOutCandles();
+            });
+
+            relightCandlesBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                flamesGroup.classList.remove('hidden');
+                relightCandlesBtn.classList.add('hidden');
+                blowCandlesBtn.classList.remove('hidden');
+                showToast('🕯️', '¡Velas encendidas nuevamente!');
+            });
+
+            // 6. Jardín de Mensajes: 4 Tarjetas Florales Interactivas (Flip)
+            document.querySelectorAll('.flower-flip-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    card.classList.toggle('is-flipped');
+                    spawnBloomingFlower(e.clientX, e.clientY, 24, true);
+                    playFlowerChime();
+                });
+            });
+
+            // 7. Ticket VIP Canjeable (#CIELO-18-VIP)
+            const redeemVipBtn = document.getElementById('redeem-vip-btn');
+            const vipRedeemedBadge = document.getElementById('vip-redeemed-badge');
+
+            redeemVipBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                redeemVipBtn.classList.add('hidden');
+                vipRedeemedBadge.classList.remove('hidden');
+                vipRedeemedBadge.classList.add('stamp-pop');
+
+                // Ráfaga de flores y destellos
+                for (let i = 0; i < 6; i++) {
+                    setTimeout(() => {
+                        spawnBloomingFlower(
+                            width * (0.2 + Math.random() * 0.6),
+                            height * (0.25 + Math.random() * 0.5),
+                            28,
+                            true
+                        );
+                    }, i * 90);
+                }
+                emitDestellos(width * 0.5, height * 0.5, 50, 7.5, false);
+                [659.25, 830.61, 987.77, 1318.5].forEach((f, idx) => {
+                    setTimeout(() => playMusicBoxTone(f, 0.7, 0.08, false), idx * 80);
+                });
+
+                showToast('🎟️', '¡VALE CANJEADO! Guarda captura para cobrar tu regalo 😄');
+            });
+        };
+    </script>
+</body>
+</html>
